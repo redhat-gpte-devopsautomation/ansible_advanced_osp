@@ -1,8 +1,8 @@
-- name: Create m2.small flavor
+- name: Create m1.medium flavor
   os_nova_flavor:
      cloud: openstack
      state: present
      name: m2.small
      ram: 2048
      vcpus: 1
-     disk: 10
+     disk: 20
