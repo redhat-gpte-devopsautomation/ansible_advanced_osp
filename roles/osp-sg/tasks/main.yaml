@@ -10,14 +10,16 @@
 - name: Create Security Group Rule Apps
   os_security_group_rule:
     cloud: openstack
-    security_group: apps 
+    security_group: apps
     protocol: tcp
     port_range_min: "{{ item.port }}"
-    port_range_max: "{{ item.port }}" 
+    port_range_max: "{{ item.port }}"
     remote_ip_prefix: "{{ item.ip_prefix }}"
   with_items:
-    - { port: '8080', ip_prefix: '0.0.0.0/0' }
-    - { port: '22', ip_prefix: '0.0.0.0/0' }
+    - port: '8080'
+      ip_prefix: '0.0.0.0/0'
+    - port: '22'
+      ip_prefix: '0.0.0.0/0'
 
 - name: Create Security Group Frontend
   os_security_group:
@@ -29,16 +31,19 @@
 - name: Create Security Group Rule Frontend
   os_security_group_rule:
     cloud: openstack
-    security_group: frontend 
+    security_group: frontend
     protocol: tcp
     port_range_min: "{{ item.port }}"
-    port_range_max: "{{ item.port }}" 
+    port_range_max: "{{ item.port }}"
     remote_ip_prefix: "{{ item.ip_prefix }}"
   with_items:
-    - { port: '80', ip_prefix: '0.0.0.0/0' }
-    - { port: '443', ip_prefix: '0.0.0.0/0' }
-    - { port: '22', ip_prefix: '0.0.0.0/0' }
-      
+    - port: '80'
+      ip_prefix: '0.0.0.0/0'
+    - port: '443'
+      ip_prefix: '0.0.0.0/0'
+    - port: '22'
+      ip_prefix: '0.0.0.0/0'
+
 - name: Create Security Group DB
   os_security_group:
     cloud: openstack
@@ -52,8 +57,10 @@
     security_group: db
     protocol: tcp
     port_range_min: "{{ item.port }}"
-    port_range_max: "{{ item.port }}" 
+    port_range_max: "{{ item.port }}"
     remote_ip_prefix: "{{ item.ip_prefix }}"
   with_items:
-    - { port: '5432', ip_prefix: '172.16.0.0/24' }
-    - { port: '22', ip_prefix: '0.0.0.0/0' }
+    - port: '5432'
+      ip_prefix: '172.16.0.0/24'
+    - port: '22'
+      ip_prefix: '0.0.0.0/0'

@@ -1,0 +1,11 @@
+---
+extends: default
+
+rules:
+  comments:
+    require-starting-space: false
+  indentation:
+    indent-sequences: consistent
+  line-length:
+    max: 200
+    allow-non-breakable-inline-mappings: true

@@ -1,5 +1,6 @@
+---
 osp_networks:
-  # Public Facing Network   
+  # Public Facing Network
   external:
     cloud_name: openstack
     network_name: ext_network
@@ -10,14 +11,14 @@ osp_networks:
     state: present
     external: true
     gateway_ip: 192.0.2.254
-    admin_state: yes
+    admin_state: true
     ip_version: 4
-    enable_dhcp: no
+    enable_dhcp: false
     allocation_pool_start: 192.0.2.150
     allocation_pool_end: 192.0.2.200
 
 
-  # Private Facing Network   
+  # Private Facing Network
   internal:
     cloud_name: openstack
     network_name: int_network
@@ -25,11 +26,11 @@ osp_networks:
     cidr_network: "172.16.0.0/24"
     state: present
     external: false
-    admin_state: yes
+    admin_state: true
     ip_version: 4
-    enable_dhcp: yes
+    enable_dhcp: true
 
-  # Public Facing Router connecting the two networks
+# Public Facing Router connecting the two networks
 osp_router:
   router:
     cloud_name: openstack
