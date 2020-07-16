@@ -1,7 +1,8 @@
+---
 - name: Generate key files
   user:
     name: "{{ ansible_env.USER }}"
-    generate_ssh_key: yes
+    generate_ssh_key: true
     ssh_key_file: .ssh/test_id_rsa
 - name: Create OSP keypair
   os_keypair:

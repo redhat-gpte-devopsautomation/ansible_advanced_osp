@@ -1,6 +1,7 @@
+---
 - hosts: localhost
   connection: local
-  become: no
+  become: false
   gather_facts: true
   roles:
-   - osp-instance-delete
+    - osp-instance-delete

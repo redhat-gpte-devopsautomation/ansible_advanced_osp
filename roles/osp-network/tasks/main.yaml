@@ -1,3 +1,4 @@
+---
 - name: Configuration of Public and Private Networks
   os_network:
     cloud: "{{ item.value.cloud_name }}"
@@ -33,7 +34,7 @@
     name: "{{ item.value.name }}"
     network: "{{ item.value.network }}"
     external_fixed_ips:
-      - { subnet: ext_subnet }
+      - subnet: ext_subnet
     interfaces:
       - "{{ item.value.interfaces }}"
   with_dict: "{{ osp_router }}"
