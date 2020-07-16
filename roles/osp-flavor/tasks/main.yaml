@@ -2,7 +2,7 @@
   os_nova_flavor:
      cloud: openstack
      state: present
-     name: m2.small
+     name: m1.medium
      ram: 2048
      vcpus: 1
      disk: 20
